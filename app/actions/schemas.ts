@@ -1,5 +1,3 @@
-// app/schemas.ts
-
 import { z } from 'zod'
 
 export const userSchema = z.object({
@@ -13,3 +11,4 @@ export type User = z.infer<typeof userSchema>
 
 export const userFormSchema = userSchema.omit({ id: true })
 export type UserFormData = z.infer<typeof userFormSchema>
+

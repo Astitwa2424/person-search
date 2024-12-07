@@ -1,0 +1,15 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // or "mysql", "sqlite", etc.
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          String @id @default(uuid()) // UUID for unique identifier
+  name        String @db.VarChar(255)     // Minimum 2 characters
+  email       String @unique @db.VarChar(255) // Unique and valid email
+  phoneNumber String @db.VarChar(10)     // Australian mobile number format
+}
