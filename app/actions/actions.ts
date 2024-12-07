@@ -9,7 +9,7 @@ export async function searchUsers(query: string): Promise<User[]> {
   console.log('Searching users with query:', query);
   return prisma.user.findMany({
     where: {
-      name: {
+      name: {             
         startsWith: query,
         mode: 'insensitive', // Case-insensitive search
       },
